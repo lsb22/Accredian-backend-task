@@ -12,6 +12,7 @@ model Referrer {
   name      String
   email     String   @unique
   phone     String
+  referrals  Referral[]
 }
 
 model Referral {
