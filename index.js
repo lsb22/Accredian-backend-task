@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const port = process.env.PORT || 3000;
+
 app.post("/form", async (req, res) => {
   if (!req.body) {
     return res.status(400).json({
@@ -49,8 +51,6 @@ app.post("/form", async (req, res) => {
       course: refereeSuggestedCourse,
     },
   });
-  console.log(referrer);
-  console.log(referral);
 });
 
-app.listen(3000, () => console.log("server running on port 3000"));
+app.listen(port, () => console.log("server running on port 3000"));
