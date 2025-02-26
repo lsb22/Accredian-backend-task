@@ -8,6 +8,8 @@ app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
+app.get("/", (req, res) => res.send("welcome to website"));
+
 app.post("/form", async (req, res) => {
   if (!req.body) {
     return res.status(400).json({
