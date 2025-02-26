@@ -2,8 +2,18 @@ import cors from "cors";
 import express from "express";
 import prisma from "./prisma.js";
 
+const corsOptions = {
+  origin: [
+    "https://accredian-frontend-task-five-umber.vercel.app/",
+    "http://localhost:5173",
+  ],
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
